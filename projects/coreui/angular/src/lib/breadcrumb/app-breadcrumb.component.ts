@@ -8,9 +8,9 @@ import { AppBreadcrumbService } from './app-breadcrumb.service';
     <ng-template ngFor let-breadcrumb [ngForOf]="breadcrumbs | async" let-last = last>
       <li class="breadcrumb-item"
           *ngIf="breadcrumb.label.title && (breadcrumb.url.slice(-1) == '/' || last)"
-          [ngClass]="{active: last}">
-        <a *ngIf="!last" [routerLink]="breadcrumb.url">{{breadcrumb.label.title}}</a>
-        <span *ngIf="last" [routerLink]="breadcrumb.url">{{breadcrumb.label.title}}</span>
+          [ngClass]="{active: (last || breadcrumb.label.noLink)}">
+        <a *ngIf="!last && !breadcrumb.label.noLink" [routerLink]="breadcrumb.url">{{breadcrumb.label.title}}</a>
+        <span *ngIf="last || breadcrumb.label.noLink" [routerLink]="breadcrumb.url">{{breadcrumb.label.title}}</span>
       </li>
     </ng-template>
   `

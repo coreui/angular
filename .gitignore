@@ -1,8 +1,9 @@
 # Misc
-# package-lock.json
+package-lock.json
 
 # Folders to ignore
-node_modules
+/dist
+/node_modules
 /coverage
 
 # IDEs and editors
