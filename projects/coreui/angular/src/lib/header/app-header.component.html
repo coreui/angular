@@ -3,6 +3,11 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 </ng-template>
+<ng-template [ngIf]="sidebarToggler != false && swapLogoAndBurgermenu">
+  <button class="navbar-toggler {{sidebarTogglerClass}}" type="button" [appSidebarToggler]="sidebarToggler">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</ng-template>
 <a class="navbar-brand" [routerLink]="navbarBrandRouterLink">
   <ng-template [ngIf]="navbarBrandImg">
     <img *ngIf="navbarBrand"
@@ -20,7 +25,7 @@
     <div class="navbar-brand-minimized" [innerHTML]="navbarBrandText.icon"></div>
   </ng-template>
 </a>
-<ng-template [ngIf]="sidebarToggler != false">
+<ng-template [ngIf]="sidebarToggler != false && !swapLogoAndBurgermenu">
   <button class="navbar-toggler {{sidebarTogglerClass}}" type="button" [appSidebarToggler]="sidebarToggler">
     <span class="navbar-toggler-icon"></span>
   </button>
